@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_8dp">
+
+    <TextView
+        android:id="@+id/itemMovieNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:text="@string/name"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemMovieYearTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:text="@string/surname"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintBottom_toBottomOf="@id/itemMovieNameTextView"
+        app:layout_constraintStart_toEndOf="@id/itemMovieNameTextView"
+        app:layout_constraintTop_toTopOf="@id/itemMovieNameTextView" />
+
+    <TextView
+        android:id="@+id/itemMovieRateTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:text="@string/age"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintBottom_toBottomOf="@id/itemMovieYearTextview"
+        app:layout_constraintStart_toEndOf="@id/itemMovieYearTextview"
+        app:layout_constraintTop_toTopOf="@id/itemMovieYearTextview" />
+
+    <TextView
+        android:id="@+id/itemActorIdTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8dp"
+        android:text="@string/actor_id"
+        android:textSize="@dimen/_16sp"
+        app:layout_constraintStart_toStartOf="@id/itemMovieNameTextView"
+        app:layout_constraintTop_toBottomOf="@id/itemMovieNameTextView" />
+
+
+    <TextView
+        android:id="@+id/itemActorNameTextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/actor_name"
+        android:textSize="@dimen/_16sp"
+        android:layout_marginStart="@dimen/_8dp"
+        app:layout_constraintTop_toTopOf="@id/itemActorIdTextview"
+        app:layout_constraintBottom_toBottomOf="@id/itemActorIdTextview"
+        app:layout_constraintStart_toEndOf="@id/itemActorIdTextview"/>
+
+    <ImageView
+        android:id="@+id/deleteMovieImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:src="@drawable/ic_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
