@@ -19,7 +19,6 @@ import com.example.actorsdatabaseapp.R
 import com.example.actorsdatabaseapp.data.data_base.DataBaseHelper
 import com.example.actorsdatabaseapp.data.model.Actor
 import com.example.actorsdatabaseapp.data.model.Movie
-import com.example.actorsdatabaseapp.databinding.DialogAddMovieBinding
 import com.example.actorsdatabaseapp.databinding.FragmentSqliteMainPageBinding
 import com.example.actorsdatabaseapp.ui.adapter.ActorsAdapter
 
