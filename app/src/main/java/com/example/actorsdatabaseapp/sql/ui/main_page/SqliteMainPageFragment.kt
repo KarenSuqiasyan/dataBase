@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.ui.main_page
+package com.example.actorsdatabaseapp.sql.ui.main_page
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
@@ -12,19 +12,18 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actorsdatabaseapp.MyApplication
 import com.example.actorsdatabaseapp.R
-import com.example.actorsdatabaseapp.data.data_base.DataBaseHelper
-import com.example.actorsdatabaseapp.data.model.Actor
-import com.example.actorsdatabaseapp.data.model.Movie
 import com.example.actorsdatabaseapp.databinding.FragmentSqliteMainPageBinding
-import com.example.actorsdatabaseapp.ui.adapter.ActorsAdapter
+import com.example.actorsdatabaseapp.sql.data.data_base.DataBaseHelper
+import com.example.actorsdatabaseapp.sql.data.model.Actor
+import com.example.actorsdatabaseapp.sql.data.model.Movie
+import com.example.actorsdatabaseapp.sql.ui.adapter.ActorsAdapter
 
 class SqliteMainPageFragment : Fragment() {
 
-    private lateinit var sqliteMainViewModel: SqliteMainPageViewModel
+//    private lateinit var sqliteMainViewModel: SqliteMainPageViewModel
     private lateinit var binding: FragmentSqliteMainPageBinding
     private lateinit var actorAdapter: ActorsAdapter
     private val dataBaseHelper by lazy {
@@ -35,7 +34,7 @@ class SqliteMainPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        sqliteMainViewModel = ViewModelProvider(this)[SqliteMainPageViewModel::class.java]
+//        sqliteMainViewModel = ViewModelProvider(this)[SqliteMainPageViewModel::class.java]
         binding = FragmentSqliteMainPageBinding.inflate(inflater, container, false)
         return binding.root
     }

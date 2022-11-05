@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.actorsdatabaseapp.databinding.ActivityMainBinding
-import com.example.actorsdatabaseapp.ui.GeneralActivity
+import com.example.actorsdatabaseapp.sql.ui.GeneralActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding

@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.data.data_base
+package com.example.actorsdatabaseapp.sql.data.data_base
 
 import android.content.ContentValues
 import android.content.Context
@@ -6,17 +6,17 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
-import com.example.actorsdatabaseapp.data.entity.ActorEntity
-import com.example.actorsdatabaseapp.data.entity.ActorEntity.ACTORS_AGE
-import com.example.actorsdatabaseapp.data.entity.ActorEntity.ACTORS_ID
-import com.example.actorsdatabaseapp.data.entity.ActorEntity.ACTORS_NAME
-import com.example.actorsdatabaseapp.data.entity.ActorEntity.ACTORS_SURNAME
-import com.example.actorsdatabaseapp.data.entity.ActorEntity.ACTORS_TABLE_NAME
-import com.example.actorsdatabaseapp.data.entity.ActorEntity.SQL_DELETE_TABLE_ACTORS
-import com.example.actorsdatabaseapp.data.entity.MoviesEntity
-import com.example.actorsdatabaseapp.data.model.Actor
-import com.example.actorsdatabaseapp.data.model.ActorMovies
-import com.example.actorsdatabaseapp.data.model.Movie
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_AGE
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_ID
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_NAME
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_SURNAME
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_TABLE_NAME
+import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.SQL_DELETE_TABLE_ACTORS
+import com.example.actorsdatabaseapp.sql.data.entity.MoviesEntity
+import com.example.actorsdatabaseapp.sql.data.model.Actor
+import com.example.actorsdatabaseapp.sql.data.model.ActorMovies
+import com.example.actorsdatabaseapp.sql.data.model.Movie
 
 class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 

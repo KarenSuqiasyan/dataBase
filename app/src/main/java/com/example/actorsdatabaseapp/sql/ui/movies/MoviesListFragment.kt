@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.ui.movies
+package com.example.actorsdatabaseapp.sql.ui.movies
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -9,12 +9,10 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actorsdatabaseapp.MyApplication
-import com.example.actorsdatabaseapp.data.data_base.DataBaseHelper
-import com.example.actorsdatabaseapp.data.model.Actor
-import com.example.actorsdatabaseapp.data.model.ActorMovies
-import com.example.actorsdatabaseapp.data.model.Movie
 import com.example.actorsdatabaseapp.databinding.FragmentMoviesListBinding
-import com.example.actorsdatabaseapp.ui.adapter.MoviesAdapter
+import com.example.actorsdatabaseapp.sql.data.data_base.DataBaseHelper
+import com.example.actorsdatabaseapp.sql.data.model.ActorMovies
+import com.example.actorsdatabaseapp.sql.ui.adapter.MoviesAdapter
 
 class MoviesListFragment : Fragment() {
 

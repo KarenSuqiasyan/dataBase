@@ -1,12 +1,12 @@
-package com.example.actorsdatabaseapp.ui
+package com.example.actorsdatabaseapp.sql.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.actorsdatabaseapp.ui.movies.MoviesListFragment
+import com.example.actorsdatabaseapp.sql.ui.movies.MoviesListFragment
 import com.example.actorsdatabaseapp.R
 import com.example.actorsdatabaseapp.databinding.ActivityGeneralBinding
-import com.example.actorsdatabaseapp.ui.main_page.SqliteMainPageFragment
+import com.example.actorsdatabaseapp.sql.ui.main_page.SqliteMainPageFragment
 
 class GeneralActivity : AppCompatActivity() {
 

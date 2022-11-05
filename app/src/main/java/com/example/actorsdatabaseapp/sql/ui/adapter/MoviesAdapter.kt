@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.ui.adapter
+package com.example.actorsdatabaseapp.sql.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.actorsdatabaseapp.data.model.ActorMovies
+import com.example.actorsdatabaseapp.sql.data.model.ActorMovies
 import com.example.actorsdatabaseapp.databinding.ItemMovieBinding
 
 class MoviesAdapter(private val itemClickListener: (ActionEnum, ActorMovies) -> Unit) : RecyclerView.Adapter<MoviesAdapter.BaseViewHolder>() {

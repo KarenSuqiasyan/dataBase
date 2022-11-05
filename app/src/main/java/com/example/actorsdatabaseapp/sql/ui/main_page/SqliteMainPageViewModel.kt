@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.ui.main_page
+package com.example.actorsdatabaseapp.sql.ui.main_page
 
 import androidx.lifecycle.ViewModel
 

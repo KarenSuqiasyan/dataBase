@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.ui.adapter
+package com.example.actorsdatabaseapp.sql.ui.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.actorsdatabaseapp.databinding.ItemActorBinding
-import com.example.actorsdatabaseapp.data.model.Actor
+import com.example.actorsdatabaseapp.sql.data.model.Actor
 
 class ActorsAdapter(private val itemClickListener: (ActionEnum, Actor) -> Unit) : RecyclerView.Adapter<ActorsAdapter.BaseViewHolder>() {
 

@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.data.entity
+package com.example.actorsdatabaseapp.sql.data.entity
 
 object ActorEntity {
 
