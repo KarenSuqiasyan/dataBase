@@ -127,7 +127,7 @@ class SqliteMainPageFragment : Fragment() {
                 val movieName = findViewById<EditText>(R.id.movieNameEditText).text.toString()
                 val movieRate = findViewById<EditText>(R.id.movieRateEditText).text.toString()
                 val movieYear = findViewById<EditText>(R.id.movieYearEditText).text.toString()
-                dataBaseHelper.addMovie(Movie(actorId = actorId.toInt(), movieName = movieName, year = movieYear.toInt(), imdbRate = movieRate.toInt()))
+                dataBaseHelper.addMovie(Movie(actorId = actorId.toInt(), movieName = movieName, year = movieYear.toInt(), imdbRate = movieRate.toDouble()))
                 Toast.makeText(requireContext(), "New Movie Added", Toast.LENGTH_SHORT).show()
                 dismiss()
             }

@@ -6,7 +6,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.example.actorsdatabaseapp.databinding.ActivityMainBinding
-import com.example.actorsdatabaseapp.sql.ui.GeneralActivity
+import com.example.actorsdatabaseapp.room.RoomActivity
+import com.example.actorsdatabaseapp.sql.ui.SQLiteActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -28,8 +29,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(p0: View?) {
         when (p0?.tag as DataBaseEnum) {
-//            DataBaseEnum.ROOM -> startActivity(Intent(this, CalculatorActivity::class.java))
-            DataBaseEnum.SQLITE -> startActivity(Intent(this, GeneralActivity::class.java))
+            DataBaseEnum.ROOM -> startActivity(Intent(this, RoomActivity::class.java))
+            DataBaseEnum.SQLITE -> startActivity(Intent(this, SQLiteActivity::class.java))
         }
     }
 }

@@ -181,7 +181,7 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
                     do {
                         val actorId = cursor.getInt(cursor.getColumnIndexOrThrow(MoviesEntity.ACTOR_ID))
                         val name = cursor.getString(cursor.getColumnIndexOrThrow(ACTORS_NAME))
-                        val movieRate = cursor.getInt(cursor.getColumnIndexOrThrow(MoviesEntity.MOVIE_RATE))
+                        val movieRate = cursor.getDouble(cursor.getColumnIndexOrThrow(MoviesEntity.MOVIE_RATE))
                         val movieYear = cursor.getInt(cursor.getColumnIndexOrThrow(MoviesEntity.MOVIE_YEAR))
                         val movieName = cursor.getString(cursor.getColumnIndexOrThrow(MoviesEntity.MOVIE_NAME))
                         val movieId = cursor.getInt(cursor.getColumnIndexOrThrow(MoviesEntity.MOVIE_ID))

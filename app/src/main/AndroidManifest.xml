@@ -15,7 +15,10 @@
         android:theme="@style/Theme.ActorsDataBaseApp"
         tools:targetApi="31">
         <activity
-            android:name="com.example.actorsdatabaseapp.sql.ui.GeneralActivity"
+            android:name=".room.RoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".sql.ui.SQLiteActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
