@@ -82,9 +82,9 @@ class RoomMainPageFragment : Fragment() {
                 }
             }
         }
-        actorViewModel.getAllActors.observe(viewLifecycleOwner, Observer { actor ->
+        actorViewModel.getAllActors.observe(viewLifecycleOwner) { actor ->
             actorAdapter.updateData(actor)
-        })
+        }
         binding.roomActorsRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = actorAdapter
