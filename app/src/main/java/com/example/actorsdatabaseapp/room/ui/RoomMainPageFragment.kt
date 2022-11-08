@@ -21,7 +21,6 @@ class RoomMainPageFragment : Fragment() {
     private lateinit var actorViewModel: ActorViewModel
     private lateinit var actorAdapter: RoomActorsAdapter
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,9 +44,9 @@ class RoomMainPageFragment : Fragment() {
         val age = binding.roomAgeEditText.text
         val petsName = binding.roomPetNameEditText.text.toString()
         val petsAge = binding.roomPetAgeEditText.text.toString()
-        val isSmart = binding.roomIsSmartCheckBox.isChecked
+        val isSmart = binding.roomIsSmartCheckBox.isChecked.toString()
         val pets = ArrayList<Pet>()
-            pets.add(Pet(petsName, petsAge.toInt(), isSmart))
+            pets.add(Pet(petsName, petsAge.toInt(), isSmart.toBoolean()))
         if (inputCheck(name, surName, age)) {
             val actorRoom = ActorRoom(0, name, surName, Integer.parseInt(age.toString()), pets)
             actorViewModel.addActor(actorRoom)

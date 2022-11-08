@@ -21,8 +21,12 @@ interface ActorDao {
     @Query("SELECT * FROM actor_table ORDER BY id ASC")
     fun getAllActors(): LiveData<List<ActorRoom>>
 
-//    @Insert(onConflict = OnConflictStrategy.IGNORE)
-//    fun addMovie(movieRoom: MovieRoom)
+    @Transaction
+    @Query("SELECT * FROM actor_table WHERE name = :actorName")
+    suspend fun getActorWithMovies(actorName: String): List<ActorWithMovies>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun addMovie(movieRoom: MovieRoom)
 
 //    @Transaction
 //    @Query("SELECT * FROM actor_table inner join movie_table on actor_table.id = actorId")
