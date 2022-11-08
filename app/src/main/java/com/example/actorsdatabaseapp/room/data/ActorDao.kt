@@ -10,13 +10,13 @@ import com.example.actorsdatabaseapp.room.data.model.MovieRoom
 interface ActorDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addActor(actorRoom: ActorRoom)
+    suspend fun addActor(actorRoom: ActorRoom)
 
     @Delete
-    fun deleteActor(actorRoom: ActorRoom)
+    suspend fun deleteActor(actorRoom: ActorRoom)
 
     @Delete
-    fun deleteMovie(movieRoom: MovieRoom)
+    suspend fun deleteMovie(movieRoom: MovieRoom)
 
     @Query("SELECT * FROM actor_table ORDER BY id ASC")
     fun getAllActors(): LiveData<List<ActorRoom>>
@@ -26,7 +26,7 @@ interface ActorDao {
     fun getActorWithMovies(): LiveData<List<ActorWithMovies>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addMovie(vararg movieRoom: MovieRoom)
+    suspend fun addMovie(vararg movieRoom: MovieRoom)
 
 //    @Transaction
 //    @Query("SELECT * FROM actor_table inner join movie_table on actor_table.id = actorId")
