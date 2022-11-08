@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     style="@style/CardView.Light"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -73,11 +74,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8dp"
-            android:text="@string/surname"
+            android:text="is smart"
             android:textSize="@dimen/_16sp"
             app:layout_constraintBottom_toBottomOf="@id/itemPetsAgeTextview"
             app:layout_constraintStart_toEndOf="@id/itemPetsAgeTextview"
-            app:layout_constraintTop_toTopOf="@id/itemPetsNameTextview" />
+            app:layout_constraintTop_toTopOf="@id/itemPetsNameTextview"
+            tools:ignore="HardcodedText" />
 
         <CheckBox
             android:id="@+id/itemIsSmartCheckBox"

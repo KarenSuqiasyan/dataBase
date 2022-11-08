@@ -55,6 +55,9 @@ class RoomMainPageFragment : Fragment() {
             binding.roomNameEditText.text.clear()
             binding.roomSurNameEditText.text.clear()
             binding.roomAgeEditText.text.clear()
+            binding.roomPetNameEditText.text.clear()
+            binding.roomPetAgeEditText.text.clear()
+            binding.roomIsSmartCheckBox.clearFocus()
         } else {
             Toast.makeText(requireActivity().applicationContext, "Please fill all fields", Toast.LENGTH_SHORT).show()
         }
