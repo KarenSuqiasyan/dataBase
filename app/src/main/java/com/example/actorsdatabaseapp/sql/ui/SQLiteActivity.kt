@@ -25,6 +25,7 @@ class SQLiteActivity : AppCompatActivity() {
             }
             true
         }
+        binding.bottomNavigationView.selectedItemId=R.id.actor
     }
 
     private fun replaceFragment(fragment: Fragment) {

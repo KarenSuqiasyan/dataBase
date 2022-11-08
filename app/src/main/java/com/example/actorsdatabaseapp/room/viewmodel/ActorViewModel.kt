@@ -4,8 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import androidx.room.withTransaction
 import com.example.actorsdatabaseapp.room.data.ActorDataBase
 import com.example.actorsdatabaseapp.room.data.model.ActorRoom
+import com.example.actorsdatabaseapp.room.data.model.ActorWithMovies
+import com.example.actorsdatabaseapp.room.data.model.MovieRoom
 import com.example.actorsdatabaseapp.room.repository.ActorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,12 +16,20 @@ import kotlinx.coroutines.launch
 class ActorViewModel(application: Application) : AndroidViewModel(application) {
 
     val getAllActors: LiveData<List<ActorRoom>>
+    val getAllActorWithMovies: LiveData<List<ActorWithMovies>>
     private val repository: ActorRepository
 
     init {
         val actorDao = ActorDataBase.getInstance(application).actorDao
         repository = ActorRepository(actorDao)
         getAllActors = repository.getAllActors
+        getAllActorWithMovies = repository.getAllActorsWithMovies
+    }
+
+    fun addMovie(movieRoom: MovieRoom) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addMovie(movieRoom)
+        }
     }
 
     fun addActor(actorRoom: ActorRoom) {
@@ -32,4 +43,5 @@ class ActorViewModel(application: Application) : AndroidViewModel(application) {
             repository.deleteActor(actorRoom)
         }
     }
+
 }

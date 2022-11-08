@@ -22,11 +22,11 @@ interface ActorDao {
     fun getAllActors(): LiveData<List<ActorRoom>>
 
     @Transaction
-    @Query("SELECT * FROM actor_table WHERE name = :actorName")
-    suspend fun getActorWithMovies(actorName: String): List<ActorWithMovies>
+    @Query("SELECT * FROM actor_table")
+    fun getActorWithMovies(): LiveData<List<ActorWithMovies>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun addMovie(movieRoom: MovieRoom)
+    fun addMovie(vararg movieRoom: MovieRoom)
 
 //    @Transaction
 //    @Query("SELECT * FROM actor_table inner join movie_table on actor_table.id = actorId")

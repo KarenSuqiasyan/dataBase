@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.actorsdatabaseapp.databinding.ItemActorBinding
 import com.example.actorsdatabaseapp.room.data.model.ActorRoom
@@ -43,14 +44,22 @@ class RoomActorsAdapter(private val itemClickListener: (ActionEnum, ActorRoom) -
         }
 
         override fun bind(item: ActorRoom) {
+            binding.itemPetsAgeTextview.isVisible = false
+            binding.itemPetsNameTextview.isVisible = false
+            binding.itemIsSmartCheckBox.isVisible = false
+            binding.itemIsSmartTextView.isVisible = false
             item.let {
-                item.pets.forEach {
+                item.pets?.forEach {
                     val name = it.petName
                     val age = it.petAge
                     val isSmart = it.petIsSmart
                     binding.itemPetsAgeTextview.text = age.toString()
                     binding.itemPetsNameTextview.text = name
                     binding.itemIsSmartCheckBox.isChecked = isSmart
+                    binding.itemPetsAgeTextview.isVisible = true
+                    binding.itemPetsNameTextview.isVisible = true
+                    binding.itemIsSmartCheckBox.isVisible = true
+                    binding.itemIsSmartTextView.isVisible = true
                 }
                 binding.itemAgeTextview.text = item.age.toString()
                 binding.itemNameTextView.text = item.name

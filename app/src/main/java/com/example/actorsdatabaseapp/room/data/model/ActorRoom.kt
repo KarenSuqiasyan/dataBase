@@ -13,7 +13,7 @@ data class ActorRoom(
     val surName: String,
     val age: Int,
 //    val actorWithMovies: ActorWithMovies,
-    val pets: List<Pet>
+    val pets: List<Pet>?
 )
 
 class PetsTypeConverter {

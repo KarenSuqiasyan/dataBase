@@ -5,15 +5,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.actorsdatabaseapp.databinding.ItemMovieBinding
 import com.example.actorsdatabaseapp.room.data.model.ActorWithMovies
+import com.example.actorsdatabaseapp.room.data.model.MovieRoom
 
-class RoomMovieAdapter(private val itemClickListener: (ActionEnum, ActorWithMovies) -> Unit) : RecyclerView.Adapter<RoomMovieAdapter.BaseViewHolder>() {
+class RoomMovieAdapter(private val itemClickListener: (ActionEnum, MovieRoom) -> Unit) : RecyclerView.Adapter<RoomMovieAdapter.BaseViewHolder>() {
 
     private lateinit var layoutInflater: LayoutInflater
     private lateinit var context: Context
-    var movies: MutableList<ActorWithMovies> = mutableListOf()
+    var movies: MutableList<MovieRoom> = mutableListOf()
 
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         super.onAttachedToRecyclerView(recyclerView)
@@ -30,14 +32,14 @@ class RoomMovieAdapter(private val itemClickListener: (ActionEnum, ActorWithMovi
     override fun getItemCount() = movies.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateData(items: List<ActorWithMovies>) {
+    fun updateData(items: List<MovieRoom>) {
         this.movies.clear()
         this.movies.addAll(items)
         notifyDataSetChanged()
     }
 
     abstract inner class BaseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        abstract fun bind(item: ActorWithMovies)
+        abstract fun bind(item: MovieRoom)
     }
 
     inner class MovieItemViewHolder(private var binding: ItemMovieBinding) : BaseViewHolder(binding.root) {
@@ -46,9 +48,8 @@ class RoomMovieAdapter(private val itemClickListener: (ActionEnum, ActorWithMovi
         }
 
         @SuppressLint("SetTextI18n")
-        override fun bind(item: ActorWithMovies) {
+        override fun bind(item: MovieRoom) {
             item.let {
-                item.movieList.forEach {
                     val movieName = it.movieName
                     val rate = it.imdbRate
                     val year = it.year
@@ -57,7 +58,7 @@ class RoomMovieAdapter(private val itemClickListener: (ActionEnum, ActorWithMovi
                     binding.itemMovieRateTextview.text = "IMDB Rate: $rate"
                     binding.itemMovieYearTextview.text = "movie Year: $year"
                     binding.itemActorIdTextview.text = "Actor ID: $actorId"
-                }
+                    binding.itemActorNameTextview.isVisible = false
             }
         }
     }
@@ -66,6 +67,4 @@ class RoomMovieAdapter(private val itemClickListener: (ActionEnum, ActorWithMovi
     enum class ActionEnum {
         ACTION_DELETE_MOVIE
     }
-
-
 }

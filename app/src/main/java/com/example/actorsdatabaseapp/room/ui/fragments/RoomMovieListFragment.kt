@@ -8,13 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actorsdatabaseapp.databinding.FragmentRoomMovieListBinding
+import com.example.actorsdatabaseapp.room.data.model.MovieRoom
 import com.example.actorsdatabaseapp.room.ui.adapters.RoomMovieAdapter
-import com.example.actorsdatabaseapp.room.viewmodel.movie.MovieViewModel
+import com.example.actorsdatabaseapp.room.viewmodel.ActorViewModel
 
 class RoomMovieListFragment : Fragment() {
 
     private lateinit var binding: FragmentRoomMovieListBinding
-    private lateinit var movieViewModel: MovieViewModel
+    private lateinit var movieViewModel: ActorViewModel
     private lateinit var movieAdapter: RoomMovieAdapter
 
 
@@ -23,7 +24,7 @@ class RoomMovieListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRoomMovieListBinding.inflate(inflater, container, false)
-        movieViewModel = ViewModelProvider(this)[MovieViewModel::class.java]
+        movieViewModel = ViewModelProvider(this)[ActorViewModel::class.java]
         return binding.root
     }
 
@@ -35,8 +36,9 @@ class RoomMovieListFragment : Fragment() {
 //                    deleteMovie(movie)
                 }
             }
-//            movieViewModel.getAllActorWithMovies.observe(viewLifecycleOwner) { actor ->
-//                movieAdapter.updateData(actor)
+        }
+        movieViewModel.getAllActorWithMovies.observe(viewLifecycleOwner) { movie ->
+            movieAdapter.updateData(movie.flatMap { aa -> mutableListOf<MovieRoom>().also { it.addAll(aa.movieList) }})
         }
         binding.roomMoviesRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())

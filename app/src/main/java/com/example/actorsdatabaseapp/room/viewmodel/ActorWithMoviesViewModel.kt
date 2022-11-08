@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.room.viewmodel.actorwithmovies
+package com.example.actorsdatabaseapp.room.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
