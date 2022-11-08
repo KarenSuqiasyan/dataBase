@@ -8,11 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actorsdatabaseapp.databinding.FragmentRoomMainPageBinding
 import com.example.actorsdatabaseapp.room.data.model.ActorRoom
+import com.example.actorsdatabaseapp.room.data.model.Pet
+import com.example.actorsdatabaseapp.room.ui.adapters.RoomActorsAdapter
 import com.example.actorsdatabaseapp.room.viewmodel.ActorViewModel
 
 class RoomMainPageFragment : Fragment() {
@@ -42,8 +43,13 @@ class RoomMainPageFragment : Fragment() {
         val name = binding.roomNameEditText.text.toString()
         val surName = binding.roomSurNameEditText.text.toString()
         val age = binding.roomAgeEditText.text
+        val petsName = binding.roomPetNameEditText.text.toString()
+        val petsAge = binding.roomPetAgeEditText.text.toString()
+        val isSmart = binding.roomIsSmartCheckBox.isChecked
+        val pets = ArrayList<Pet>()
+            pets.add(Pet(petsName, petsAge.toInt(), isSmart))
         if (inputCheck(name, surName, age)) {
-            val actorRoom = ActorRoom(0, name, surName, Integer.parseInt(age.toString()))
+            val actorRoom = ActorRoom(0, name, surName, Integer.parseInt(age.toString()), pets)
             actorViewModel.addActor(actorRoom)
             Toast.makeText(requireActivity().applicationContext, "Actors saved", Toast.LENGTH_SHORT).show()
             binding.roomNameEditText.text.clear()
@@ -80,6 +86,9 @@ class RoomMainPageFragment : Fragment() {
                 RoomActorsAdapter.ActionEnum.ACTION_ADD_MOVIE -> {
 //                        showAddMovieDialog(actor.id)
                 }
+                RoomActorsAdapter.ActionEnum.ACTION_ADD_PET -> {
+
+                }
             }
         }
         actorViewModel.getAllActors.observe(viewLifecycleOwner) { actor ->
@@ -90,7 +99,6 @@ class RoomMainPageFragment : Fragment() {
             adapter = actorAdapter
         }
     }
-
 
     companion object {
         fun newInstance() = RoomMainPageFragment()

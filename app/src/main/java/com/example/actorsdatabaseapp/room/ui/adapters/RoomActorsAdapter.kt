@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.room.ui
+package com.example.actorsdatabaseapp.room.ui.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -22,9 +22,9 @@ class RoomActorsAdapter(private val itemClickListener: (ActionEnum, ActorRoom) -
         layoutInflater = LayoutInflater.from(context)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoomActorsAdapter.BaseViewHolder = ActorItemViewHolder(ItemActorBinding.inflate(layoutInflater, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder = ActorItemViewHolder(ItemActorBinding.inflate(layoutInflater, parent, false))
 
-    override fun onBindViewHolder(holder: RoomActorsAdapter.BaseViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
         holder.bind(actors[position])
     }
 
@@ -34,15 +34,24 @@ class RoomActorsAdapter(private val itemClickListener: (ActionEnum, ActorRoom) -
         abstract fun bind(item: ActorRoom)
     }
 
-    inner class ActorItemViewHolder(private var binding: ItemActorBinding) : RoomActorsAdapter.BaseViewHolder(binding.root) {
+    inner class ActorItemViewHolder(private var binding: ItemActorBinding) : BaseViewHolder(binding.root) {
 
         init {
             binding.deleteActorImageView.setOnClickListener { itemClickListener(ActionEnum.ACTION_DELETE, actors[adapterPosition]) }
             binding.addMovieImageView.setOnClickListener { itemClickListener(ActionEnum.ACTION_ADD_MOVIE, actors[adapterPosition]) }
+            binding.addPetImageView.setOnClickListener { itemClickListener(ActionEnum.ACTION_ADD_PET, actors[adapterPosition]) }
         }
 
         override fun bind(item: ActorRoom) {
             item.let {
+                item.pets.forEach {
+                    val name = it.petName
+                    val age = it.petAge
+                    val isSmart = it.petIsSmart
+                    binding.itemPetsAgeTextview.text = age.toString()
+                    binding.itemPetsNameTextview.text = name
+                    binding.itemIsSmartCheckBox.isChecked = isSmart
+                }
                 binding.itemAgeTextview.text = item.age.toString()
                 binding.itemNameTextView.text = item.name
                 binding.itemSurnameTextview.text = item.surName
@@ -59,6 +68,7 @@ class RoomActorsAdapter(private val itemClickListener: (ActionEnum, ActorRoom) -
 
     enum class ActionEnum {
         ACTION_DELETE,
-        ACTION_ADD_MOVIE
+        ACTION_ADD_MOVIE,
+        ACTION_ADD_PET
     }
 }

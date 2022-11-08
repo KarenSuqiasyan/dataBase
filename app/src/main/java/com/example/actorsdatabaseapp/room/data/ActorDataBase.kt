@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import com.example.actorsdatabaseapp.room.data.model.ActorRoom
+import com.example.actorsdatabaseapp.room.data.model.MovieRoom
+import com.example.actorsdatabaseapp.room.data.model.PetsTypeConverter
 
-@Database(entities = [ActorRoom::class], version = 1, exportSchema = false)
-
+@Database(entities = [ActorRoom::class, MovieRoom::class], version = 1, exportSchema = false)
+@TypeConverters(PetsTypeConverter::class)
 abstract class ActorDataBase : RoomDatabase() {
 
     abstract val actorDao: ActorDao
