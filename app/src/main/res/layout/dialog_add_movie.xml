@@ -39,7 +39,7 @@
         android:id="@+id/movieRateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_margin="@dimen/_8dp"
         android:hint="@string/movie_rate"
         app:layout_constraintTop_toBottomOf="@id/movieNameEditText" />
@@ -48,7 +48,7 @@
         android:id="@+id/movieYearEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_margin="@dimen/_8dp"
         android:hint="@string/movie_year"
         app:layout_constraintTop_toBottomOf="@id/movieRateEditText" />
