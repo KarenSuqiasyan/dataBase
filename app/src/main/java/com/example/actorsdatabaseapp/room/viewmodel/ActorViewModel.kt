@@ -16,14 +16,12 @@ import kotlinx.coroutines.launch
 class ActorViewModel(application: Application) : AndroidViewModel(application) {
 
     val getAllActors: LiveData<List<ActorRoom>>
-    val getAllActorWithMovies: LiveData<List<ActorWithMovies>>
     private val repository: ActorRepository
 
     init {
         val actorDao = ActorDataBase.getInstance(application).actorDao
         repository = ActorRepository(actorDao)
         getAllActors = repository.getAllActors
-        getAllActorWithMovies = repository.getAllActorsWithMovies
     }
 
     fun addMovie(movieRoom: MovieRoom) {

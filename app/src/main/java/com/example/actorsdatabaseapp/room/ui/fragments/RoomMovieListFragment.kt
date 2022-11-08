@@ -4,18 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actorsdatabaseapp.databinding.FragmentRoomMovieListBinding
+import com.example.actorsdatabaseapp.room.data.model.ActorWithMovies
 import com.example.actorsdatabaseapp.room.data.model.MovieRoom
 import com.example.actorsdatabaseapp.room.ui.adapters.RoomMovieAdapter
-import com.example.actorsdatabaseapp.room.viewmodel.ActorViewModel
+import com.example.actorsdatabaseapp.room.viewmodel.MovieViewModel
 
 class RoomMovieListFragment : Fragment() {
 
     private lateinit var binding: FragmentRoomMovieListBinding
-    private lateinit var movieViewModel: ActorViewModel
+    private lateinit var movieViewModel: MovieViewModel
     private lateinit var movieAdapter: RoomMovieAdapter
 
 
@@ -24,7 +27,7 @@ class RoomMovieListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRoomMovieListBinding.inflate(inflater, container, false)
-        movieViewModel = ViewModelProvider(this)[ActorViewModel::class.java]
+        movieViewModel = ViewModelProvider(this)[MovieViewModel::class.java]
         return binding.root
     }
 
@@ -33,16 +36,30 @@ class RoomMovieListFragment : Fragment() {
         movieAdapter = RoomMovieAdapter { action, movie ->
             when (action) {
                 RoomMovieAdapter.ActionEnum.ACTION_DELETE_MOVIE -> {
-//                    deleteMovie(movie)
+                    deleteMovie(movie)
                 }
             }
         }
         movieViewModel.getAllActorWithMovies.observe(viewLifecycleOwner) { movie ->
-            movieAdapter.updateData(movie.flatMap { aa -> mutableListOf<MovieRoom>().also { it.addAll(aa.movieList) }})
+            movieAdapter.updateData(movie.flatMap { aa -> mutableListOf<MovieRoom>().also { it.addAll(aa.movieList) } })
         }
         binding.roomMoviesRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = movieAdapter
+        }
+    }
+
+    private fun deleteMovie(movieRoom: MovieRoom) {
+        AlertDialog.Builder(requireContext()).apply {
+            setPositiveButton("Yes") { _, _ ->
+                movieViewModel.deleteMovie(movieRoom)
+                Toast.makeText(requireContext(), "Successfully removed ${movieRoom.movieName}", Toast.LENGTH_SHORT).show()
+            }
+            setNegativeButton("No") { _, _ -> }
+            setIcon(android.R.drawable.ic_dialog_alert)
+            setTitle("Delete ${movieRoom.movieName}")
+            setMessage("Are You sure you want to delete ${movieRoom.movieName}")
+            create().show()
         }
     }
 
@@ -51,20 +68,8 @@ class RoomMovieListFragment : Fragment() {
     }
 }
 
-//    private fun deleteMovie(actorWithMovies: ActorWithMovies) {
-//        AlertDialog.Builder(requireContext()).apply {
-//            setPositiveButton("Yes") { _, _ ->
-//                movieViewModel.deleteMovie(actorWithMovies)
-//                Toast.makeText(requireContext(), "Successfully removed ${actorWithMovies}", Toast.LENGTH_SHORT).show()
-//            }
-//            setNegativeButton("No") { _, _ -> }
-//            setIcon(android.R.drawable.ic_dialog_alert)
-//            setTitle("Delete ${actorWithMovies}")
-//            setMessage("Are You sure you want to delete ${actorWithMovies}")
-//            create().show()
-//        }
-//    }
-//
+
+
 
 
 

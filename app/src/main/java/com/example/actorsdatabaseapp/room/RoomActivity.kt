@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.actorsdatabaseapp.R
 import com.example.actorsdatabaseapp.databinding.ActivityRoomBinding
-import com.example.actorsdatabaseapp.room.ui.RoomMainPageFragment
+import com.example.actorsdatabaseapp.room.ui.fragments.RoomMainPageFragment
 import com.example.actorsdatabaseapp.room.ui.fragments.RoomMovieListFragment
 
 class RoomActivity : AppCompatActivity() {

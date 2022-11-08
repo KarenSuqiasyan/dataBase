@@ -15,8 +15,8 @@ interface ActorDao {
     @Delete
     fun deleteActor(actorRoom: ActorRoom)
 
-//    @Delete
-//    fun deleteMovie(actorWithMovies: ActorWithMovies)
+    @Delete
+    fun deleteMovie(movieRoom: MovieRoom)
 
     @Query("SELECT * FROM actor_table ORDER BY id ASC")
     fun getAllActors(): LiveData<List<ActorRoom>>

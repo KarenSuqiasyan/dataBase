@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.room.ui
+package com.example.actorsdatabaseapp.room.ui.fragments
 
 import android.app.AlertDialog
 import android.app.Dialog

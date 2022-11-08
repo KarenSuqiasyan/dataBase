@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".room.ui.RoomMainPageFragment">
+    tools:context=".room.ui.fragments.RoomMainPageFragment">
 
     <TextView
         android:id="@+id/roomNameTextview"
@@ -27,7 +27,8 @@
         app:layout_constraintBottom_toBottomOf="@id/roomNameTextview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/roomNameTextview"
-        app:layout_constraintTop_toTopOf="@id/roomNameTextview" />
+        app:layout_constraintTop_toTopOf="@id/roomNameTextview"
+        />
 
     <TextView
         android:id="@+id/roomSurNameTextview"

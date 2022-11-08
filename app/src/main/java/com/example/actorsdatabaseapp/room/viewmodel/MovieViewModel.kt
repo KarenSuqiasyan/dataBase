@@ -14,22 +14,20 @@ import kotlinx.coroutines.launch
 class MovieViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: MovieRepository
+    val getAllActorWithMovies: LiveData<List<ActorWithMovies>>
 
 
     init {
         val actorDao = ActorDataBase.getInstance(application).actorDao
         repository = MovieRepository(actorDao)
+        getAllActorWithMovies = repository.getAllActorsWithMovies
     }
 
-    fun addMovie(movieRoom: MovieRoom) {
+    fun deleteMovie(movieRoom: MovieRoom) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.addMovie(movieRoom)
+            repository.deleteMovie(movieRoom)
         }
     }
-
-//    fun deleteMovie(actorWithMovies: ActorWithMovies) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repository.deleteMovie(actorWithMovies)
-//        }
-//    }
 }
+
+

@@ -11,11 +11,7 @@ class MovieRepository(private val actorDao: ActorDao) {
     val getAllActorsWithMovies: LiveData<List<ActorWithMovies>> = actorDao.getActorWithMovies()
 
 
-    suspend fun addMovie(movieRoom: MovieRoom) {
-        actorDao.addMovie(movieRoom)
+     fun deleteMovie(movieRoom: MovieRoom) {
+        actorDao.deleteMovie(movieRoom)
     }
-
-//    suspend fun deleteMovie(actorWithMovies: ActorWithMovies) {
-//        actorDao.deleteMovie(actorWithMovies)
-//    }
 }
