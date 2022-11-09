@@ -19,6 +19,7 @@ import com.example.actorsdatabaseapp.databinding.FragmentSqliteMainPageBinding
 import com.example.actorsdatabaseapp.sql.data.data_base.DataBaseHelper
 import com.example.actorsdatabaseapp.sql.data.model.Actor
 import com.example.actorsdatabaseapp.sql.data.model.Movie
+import com.example.actorsdatabaseapp.sql.data.model.Pets
 import com.example.actorsdatabaseapp.sql.ui.adapter.ActorsAdapter
 
 class SqliteMainPageFragment : Fragment() {
@@ -76,14 +77,21 @@ class SqliteMainPageFragment : Fragment() {
         val name = binding.nameEditText.text.toString()
         val surName = binding.surNameEditText.text.toString()
         val age = binding.ageEditText.text.toString()
+        val petName = binding.petNameEditText.text.toString()
+        val petAge = binding.petAgeEditText.text.toString()
+        val petIsSmart = binding.isSmartCheckBox
+        val pet = Pets(petName, petAge.toInt(), petIsSmart.isChecked)
+        val petList = ArrayList<Pets>()
+        petList.add(pet)
         if (name.isNotEmpty() && surName.isNotEmpty() && age.isNotEmpty()) {
-            val result = dataBaseHelper.addActor(Actor(name = name, age = age, surName = surName))
+            val result = dataBaseHelper.addActor(Actor(name = name, age = age, surName = surName, pets = petList))
             if (result > 0) {
                 Toast.makeText(requireActivity().applicationContext, "Actors saved to table: $result", Toast.LENGTH_SHORT).show()
                 binding.nameEditText.text.clear()
                 binding.surNameEditText.text.clear()
                 binding.ageEditText.text.clear()
-
+                binding.petNameEditText.text.clear()
+                binding.petAgeEditText.text.clear()
                 setUpdDataIntoRecyclerview()
             }
         }

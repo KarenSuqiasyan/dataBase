@@ -5,9 +5,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.actorsdatabaseapp.databinding.ItemActorBinding
+import com.example.actorsdatabaseapp.room.data.model.MovieRoom
 import com.example.actorsdatabaseapp.sql.data.model.Actor
+import com.example.actorsdatabaseapp.sql.data.model.Pets
 
 class ActorsAdapter(private val itemClickListener: (ActionEnum, Actor) -> Unit) : RecyclerView.Adapter<ActorsAdapter.BaseViewHolder>() {
 
@@ -47,8 +50,24 @@ class ActorsAdapter(private val itemClickListener: (ActionEnum, Actor) -> Unit) 
         }
 
         override fun bind(item: Actor) {
+            binding.itemPetsAgeTextview.isVisible = false
+            binding.itemPetsNameTextview.isVisible = false
+            binding.itemIsSmartCheckBox.isVisible = false
+            binding.itemIsSmartTextView.isVisible = false
             item.let {
-                binding.itemAgeTextview.text = item.age
+                item.pets.forEach {
+                    val name = it.name
+                    val age = it.age
+                    val isSmart = it.isSmart
+                    binding.itemPetsAgeTextview.text = age.toString()
+                    binding.itemPetsNameTextview.text = name
+                    binding.itemIsSmartCheckBox.isChecked = isSmart
+                    binding.itemPetsAgeTextview.isVisible = true
+                    binding.itemPetsNameTextview.isVisible = true
+                    binding.itemIsSmartCheckBox.isVisible = true
+                    binding.itemIsSmartTextView.isVisible = true
+                }
+                binding.itemAgeTextview.text = item.age.toString()
                 binding.itemNameTextView.text = item.name
                 binding.itemSurnameTextview.text = item.surName
             }
