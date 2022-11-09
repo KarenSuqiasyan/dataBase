@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.sql.ui.main_page
+package com.example.actorsdatabaseapp.sql.ui.fragments
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog

@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.actorsdatabaseapp.R
 import com.example.actorsdatabaseapp.databinding.ActivitySqliteBinding
-import com.example.actorsdatabaseapp.sql.ui.main_page.SqliteMainPageFragment
-import com.example.actorsdatabaseapp.sql.ui.movies.MoviesListFragment
+import com.example.actorsdatabaseapp.sql.ui.fragments.SqliteMainPageFragment
+import com.example.actorsdatabaseapp.sql.ui.fragments.MoviesListFragment
 
 class SQLiteActivity : AppCompatActivity() {
 

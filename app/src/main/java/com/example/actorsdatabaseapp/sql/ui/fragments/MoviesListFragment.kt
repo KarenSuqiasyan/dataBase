@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.sql.ui.movies
+package com.example.actorsdatabaseapp.sql.ui.fragments
 
 import android.app.AlertDialog
 import android.os.Bundle
