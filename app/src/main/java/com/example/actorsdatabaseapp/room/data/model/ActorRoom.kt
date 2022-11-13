@@ -18,7 +18,7 @@ data class ActorRoom(
 
 class PetsTypeConverter {
     @TypeConverter
-    fun listToJson(value: List<Pet>?) = Gson().toJson(value)
+    fun listToJson(value: List<Pet>?): String = Gson().toJson(value)
 
     @TypeConverter
     fun jsonToList(value: String) = Gson().fromJson(value, Array<Pet>::class.java).toList()
