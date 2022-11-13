@@ -67,7 +67,7 @@ class ActorsAdapter(private val itemClickListener: (ActionEnum, Actor) -> Unit) 
                     binding.itemIsSmartCheckBox.isVisible = true
                     binding.itemIsSmartTextView.isVisible = true
                 }
-                binding.itemAgeTextview.text = item.age.toString()
+                binding.itemAgeTextview.text = item.age
                 binding.itemNameTextView.text = item.name
                 binding.itemSurnameTextview.text = item.surName
             }

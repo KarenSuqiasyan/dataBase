@@ -9,7 +9,7 @@ import com.example.actorsdatabaseapp.room.data.ActorDataBase
 import com.example.actorsdatabaseapp.room.data.model.ActorRoom
 import com.example.actorsdatabaseapp.room.data.model.ActorWithMovies
 import com.example.actorsdatabaseapp.room.data.model.MovieRoom
-import com.example.actorsdatabaseapp.room.repository.ActorRepository
+import com.example.actorsdatabaseapp.room.data.repository.ActorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

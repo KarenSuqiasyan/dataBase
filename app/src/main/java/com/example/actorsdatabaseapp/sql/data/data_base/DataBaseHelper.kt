@@ -5,9 +5,8 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
-import android.util.JsonReader
 import android.widget.Toast
-import com.example.actorsdatabaseapp.sql.Convert
+import com.example.actorsdatabaseapp.sql.util.Convert
 import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity
 import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_AGE
 import com.example.actorsdatabaseapp.sql.data.entity.ActorEntity.ACTORS_ID
@@ -62,7 +61,7 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
     }
 
     fun deleteActor(id: Int): Int {
-        var result = -1
+        val result : Int
         val db = this.writableDatabase
 
         val whereClause = "$ACTORS_ID = ?"
@@ -117,7 +116,7 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
     }
 
     fun deleteMovie(id: Int): Int {
-        var result = -1
+        val result :Int
         val db = this.writableDatabase
 
         val whereClause = "${MoviesEntity.MOVIE_ID} = ?"

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.actorsdatabaseapp.MyApplication
 import com.example.actorsdatabaseapp.R
 import com.example.actorsdatabaseapp.databinding.FragmentSqliteMainPageBinding
+import com.example.actorsdatabaseapp.room.data.model.Pet
 import com.example.actorsdatabaseapp.sql.data.data_base.DataBaseHelper
 import com.example.actorsdatabaseapp.sql.data.model.Actor
 import com.example.actorsdatabaseapp.sql.data.model.Movie
@@ -35,7 +36,6 @@ class SqliteMainPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//        sqliteMainViewModel = ViewModelProvider(this)[SqliteMainPageViewModel::class.java]
         binding = FragmentSqliteMainPageBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -80,9 +80,10 @@ class SqliteMainPageFragment : Fragment() {
         val petName = binding.petNameEditText.text.toString()
         val petAge = binding.petAgeEditText.text.toString()
         val petIsSmart = binding.isSmartCheckBox
-        val pet = Pets(petName, petAge.toInt(), petIsSmart.isChecked)
         val petList = ArrayList<Pets>()
-        petList.add(pet)
+        if (petName.isNotEmpty() && petAge.isNotEmpty()) {
+            petList.add(Pets(petName, petAge.toInt(), petIsSmart.isChecked))
+        }
         if (name.isNotEmpty() && surName.isNotEmpty() && age.isNotEmpty()) {
             val result = dataBaseHelper.addActor(Actor(name = name, age = age, surName = surName, pets = petList))
             if (result > 0) {

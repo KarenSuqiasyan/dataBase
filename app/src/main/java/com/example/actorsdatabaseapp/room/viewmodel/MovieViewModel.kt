@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.actorsdatabaseapp.room.data.ActorDataBase
 import com.example.actorsdatabaseapp.room.data.model.ActorWithMovies
 import com.example.actorsdatabaseapp.room.data.model.MovieRoom
-import com.example.actorsdatabaseapp.room.repository.MovieRepository
+import com.example.actorsdatabaseapp.room.data.repository.MovieRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

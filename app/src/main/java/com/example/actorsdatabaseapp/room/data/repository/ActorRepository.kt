@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.room.repository
+package com.example.actorsdatabaseapp.room.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.actorsdatabaseapp.room.data.ActorDao

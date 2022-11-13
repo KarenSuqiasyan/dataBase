@@ -1,4 +1,4 @@
-package com.example.actorsdatabaseapp.sql
+package com.example.actorsdatabaseapp.sql.util
 
 import com.example.actorsdatabaseapp.sql.data.model.Pets
 import com.google.gson.Gson
