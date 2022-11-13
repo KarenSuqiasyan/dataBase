@@ -12,7 +12,6 @@ data class ActorRoom(
     val name: String,
     val surName: String,
     val age: Int,
-//    val actorWithMovies: ActorWithMovies,
     val pets: List<Pet>?
 )
 
