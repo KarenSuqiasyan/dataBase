@@ -30,6 +30,5 @@ class SQLiteActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager = supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
-
     }
 }

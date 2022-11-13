@@ -44,7 +44,7 @@ class RoomMainPageFragment : Fragment() {
         setUpdDataIntoRecyclerview()
     }
 
-    fun showAddMovieDialog(id: Int) {
+    private fun showAddMovieDialog(id: Int) {
         Dialog(requireActivity()).apply {
             setContentView(R.layout.dialog_add_movie)
             findViewById<TextView>(R.id.actorsIdEditableTextView).setText(id.toString())

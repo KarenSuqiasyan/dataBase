@@ -59,19 +59,6 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
         return result
     }
 
-    fun updateActor(actor: Actor): Int {
-        val db = this.writableDatabase
-        val contentValues = ContentValues()
-        contentValues.apply {
-            put(ACTORS_NAME, actor.name)
-            put(ACTORS_SURNAME, actor.surName)
-            put(ACTORS_AGE, actor.age)
-        }
-        val success = db.update(ACTORS_TABLE_NAME, contentValues, ACTORS_ID + "=" + actor.id, null)
-        db.close()
-        return success
-    }
-
     fun deleteActor(id: Int): Int {
         var result = -1
         val db = this.writableDatabase
@@ -80,11 +67,6 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
         val whereArgs = arrayOf("$id")
         result = db.delete(ACTORS_TABLE_NAME, whereClause, whereArgs)
         db.close()
-//        val contentValues = ContentValues()
-//        contentValues.apply {
-//            put(COLUMN_ACTORS_ID, actor.id)
-//        }
-//        val success = db.delete(ACTORS_TABLE_NAME, COLUMN_ACTORS_ID + "=" + actor.id, null)
         return result
     }
 
@@ -113,31 +95,6 @@ class DataBaseHelper(private val context: Context) : SQLiteOpenHelper(context, D
         }
         return actorsList
     }
-
-//    fun getActor(actorId: Int): Actor {
-//        var id = 0
-//        var name = ""
-//        var surName = ""
-//        var age = "0"
-//        var actor = Actor(id, name, surName, age)
-//        val db = readableDatabase
-//        val query = "SELECT * FROM $ACTORS_TABLE_NAME WHERE $ACTORS_ID = $actorId"
-//        val cursor = db.rawQuery(query, null)
-//        cursor?.let {
-//            if (cursor.columnCount > 0) {
-//                if (cursor.moveToFirst()) {
-//                    id = cursor.getInt(cursor.getColumnIndexOrThrow(ACTORS_ID))
-//                    name = cursor.getString(cursor.getColumnIndexOrThrow(ACTORS_NAME))
-//                    surName = cursor.getString(cursor.getColumnIndexOrThrow(ACTORS_SURNAME))
-//                    age = cursor.getString(cursor.getColumnIndexOrThrow(ACTORS_AGE))
-//                    actor = Actor(id, name, surName, age)
-//                }
-//            }
-//            cursor.close()
-//            db.close()
-//        }
-//        return actor
-//    }
 
     fun addMovie(movie: Movie) {
         val db = this.writableDatabase
